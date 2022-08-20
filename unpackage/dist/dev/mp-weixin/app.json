@@ -9,7 +9,8 @@
     {
       "root": "subpkg",
       "pages": [
-        "goods-detail/goods-detail"
+        "goods-detail/goods-detail",
+        "ceshi/ceshi"
       ]
     }
   ],

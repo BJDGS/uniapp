@@ -152,28 +152,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      swiperList: [] };
+      swiperList: [],
+      navList: [],
+      floorList: [] };
 
   },
   onLoad: function onLoad() {
     this.getSwiperList();
+    this.getNavList();
+    this.getFloorList();
   },
   methods: {
     getSwiperList: function getSwiperList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _yield$uni$$http$get, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  uni.$http.get('api/public/v1/home/swiperdata'));case 2:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;
+                  uni.$http.get('/api/public/v1/home/swiperdata'));case 2:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;if (!(
+
+                res.meta.status !== 200)) {_context.next = 6;break;}return _context.abrupt("return",
+                uni.$showMsg());case 6:
+
+                _this.swiperList = res.message;
+                // uni.$showMsg('轮播图请求成功！')
+              case 7:case "end":return _context.stop();}}}, _callee);}))();},
+    getNavList: function getNavList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _yield$uni$$http$get2, res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  uni.$http.get('/api/public/v1/home/catitems'));case 2:_yield$uni$$http$get2 = _context2.sent;res = _yield$uni$$http$get2.data;if (!(
+
+                res.meta.status !== 200)) {_context2.next = 6;break;}return _context2.abrupt("return",
+                uni.$showMsg());case 6:
+
+                _this2.navList = res.message;
+                // uni.$showMsg('导航栏请求成功！')
+              case 7:case "end":return _context2.stop();}}}, _callee2);}))();},
+    navClickHandler: function navClickHandler(item) {
+      if (item.name === "分类") {
+        uni.switchTab({
+          url: '/pages/cate/cate' });
+
+      }
+    },
+    getFloorList: function getFloorList() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _yield$uni$$http$get3, res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  uni.$http.get('/api/public/v1/home/floordata'));case 2:_yield$uni$$http$get3 = _context3.sent;res = _yield$uni$$http$get3.data;
                 console.log(res);if (!(
-                res.meta.status !== 200)) {_context.next = 7;break;}return _context.abrupt("return",
-                uni.showToast({
-                  title: '数据请求失败！',
-                  duration: 1500,
-                  icon: 'none' }));case 7:
+                res.meta.status !== 200)) {_context3.next = 7;break;}return _context3.abrupt("return",
+                uni.$showMsg());case 7:
 
-
-                _this.swiperList = res.message;case 8:case "end":return _context.stop();}}}, _callee);}))();
+                _this3.floorList = res.message;
+                uni.$showMsg('电梯请求成功');case 9:case "end":return _context3.stop();}}}, _callee3);}))();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

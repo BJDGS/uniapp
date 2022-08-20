@@ -17,9 +17,24 @@
     // root根目录是subpkg
     "root": "subpkg",
     "pages": [{
-      "path" : "goods-detail/goods-detail",
-      "style" : {}
-    }]
+                    "path" : "goods-detail/goods-detail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "ceshi/ceshi",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
   }],
   "globalStyle": {
     "navigationBarTextStyle": "white",
