@@ -10061,7 +10061,58 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 72:
+/***/ 74:
+/*!***************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 75));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 76));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 77));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 75:
+/*!**************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \**************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+
+/***/ }),
+
+/***/ 76:
+/*!*******************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \*******************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+
+/***/ }),
+
+/***/ 77:
+/*!*******************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \*******************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
+
+/***/ }),
+
+/***/ 85:
 /*!************************************************************************************!*\
   !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \************************************************************************************/

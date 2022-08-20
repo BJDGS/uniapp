@@ -24,17 +24,9 @@
                     "enablePullDownRefresh": false
                 }
                 
-                }
-                ,{
-                    "path" : "ceshi/ceshi",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
+                },
                 
-                }
-                ,{
+                {
                     "path" : "search/search",
                     "style" :                                                                                    
                 {

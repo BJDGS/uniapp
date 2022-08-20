@@ -10,7 +10,6 @@
       "root": "subpkg",
       "pages": [
         "goods-detail/goods-detail",
-        "ceshi/ceshi",
         "search/search",
         "goods-list/goods-list"
       ]
