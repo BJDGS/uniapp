@@ -11,6 +11,15 @@
   }, {
     "path": "pages/my/my",
     "style": {}
+  }], 
+  // 上面是主包页面,启动时就调用,下面是分包页面,为了提高启动速度,点击才触发
+  "subPackages": [{
+    // root根目录是subpkg
+    "root": "subpkg",
+    "pages": [{
+      "path" : "goods-detail/goods-detail",
+      "style" : {}
+    }]
   }],
   "globalStyle": {
     "navigationBarTextStyle": "white",
@@ -47,3 +56,4 @@
     ]
   }
 }
+
