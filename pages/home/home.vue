@@ -1,9 +1,12 @@
 <template>
   <view>
+    <view class="search-box">
+      <my-search @click="gotoSeach"></my-search>
+    </view>
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="(item, i) in swiperList" :key="i">
         <!-- 为了实现点击跳转功能，就不能用view组件，写navigator组件可跳转，并动态绑定url -->
-        <navigator class="swiper-item" :url="'/subpkg/ceshi/ceshi?goods_id=129'">
+        <navigator class="swiper-item" :url="'/subpkg/goods-detail/goods-detail?goods_id=' + item.goods_id">
           <!-- img标签有差异 -->
           <image :src="item.image_src">
         </navigator>
@@ -82,12 +85,23 @@
         }
         this.floorList = res.message
         uni.$showMsg('电梯请求成功')
+      },
+      gotoSeach() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
       }
     }
   }
 </script>
 
 <style lang="scss">
+// 吸顶效果,只用一个view + 三个css就可以
+.search-box {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 swiper {
   height: 300rpx;
   .swiper-item, image {

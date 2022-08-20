@@ -1,5 +1,6 @@
 <template>
   <view>
+    <my-search @click="gotoSeach"></my-search>
     <view class="scroll-view-container">
       <scroll-view class="left-scroll-view" scroll-y="true" :style="{height: wh + 'px'}">
         <view class="left-scroll-view-item" v-for="(item, i) in cateList" :key="i" @click="activeChange(i)" :class="{active:active === i}">{{item.cat_name}}</view>
@@ -8,7 +9,7 @@
         <view class="cate-lv2" v-for="(val, j) in cateList_children" :key="j">
           <view class="cate-lv2-title">/{{val.cat_name}}/</view>
           <view class="cate-lv3-list">
-            <view class="cate-lv3-item" v-for="(val2, j2) in val.children" :key="j2">
+            <view class="cate-lv3-item" v-for="(val2, j2) in val.children" :key="j2" @click="gotoGoodsList(val2)">
               <image :src="val2.cat_icon" alt="">
               <text>{{val2.cat_name}}</text>
             </view>
@@ -51,6 +52,18 @@
         this.active = i
         this.cateList_children = this.cateList[i].children
         this.scrollTop = this.scrollTop===0 ? 1 :0
+      },
+      gotoGoodsList(val2){
+        uni.navigateTo({
+           url:'/subpkg/goods-list/goods-list?cid='+val2.cat_id
+           // url:'/subpkg/goods-list/goods-list'
+        })
+      },
+      gotoSeach(){
+        console.log('waimian')
+        uni.navigateTo({
+          url:'/subpkg/search/search'
+        })
       }
     }
   }
