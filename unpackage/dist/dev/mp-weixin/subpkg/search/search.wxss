@@ -34,4 +34,43 @@
   /* 将默认的 #FFFFFF 改为 #C00000 */
   background-color: #c00000;
 }
+.sugg-list {
+  padding: 0 5px;
+}
+.sugg-list .sugg-item {
+  font-size: 12px;
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid #efefef;
+  align-items: center;
+  justify-content: space-between;
+}
+.sugg-list .sugg-item .goods-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 3px;
+}
+.history-box {
+  padding: 0 5px;
+}
+.history-box .history-title {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
+  font-size: 13px;
+  border-bottom: 1px solid #efefef;
+}
+.history-box .history-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  line-height: 30px;
+  align-items: center;
+}
+.history-box .history-list .uni-tag {
+  margin-left: 8px;
+  margin-top: 10px;
+}
 

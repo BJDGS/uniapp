@@ -10,7 +10,7 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "subpkg/search/search",
+                    "pathName": "pages/home/home",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
