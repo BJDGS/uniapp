@@ -26,6 +26,7 @@
 </template>
 
 <script>
+  import { mapState, mapMutations, mapGetters } from 'vuex'
   export default {
     data() {
       return {
@@ -38,7 +39,7 @@
         {
           icon: 'cart',
           text: '购物车',
-          info: 2
+          info: 0
         }],
         buttonGroup: [
         {
@@ -58,6 +59,7 @@
       this.getGoodsDetail(goods_id)
     },
     methods: {
+      ...mapMutations('m_cart', ['addToCart']),
       async getGoodsDetail(goods_id) {
         const { data: res } = await uni.$http.get('/api/public/v1/goods/detail', { goods_id })
         console.log(res)
@@ -76,15 +78,51 @@
       },
       onClick(e) {
         console.log(e)
+        if (e.content.text === '购物车') {
+          uni.switchTab({
+            url: '/pages/cart/cart'
+          })
+        }
       },
       // 目前上面的没有用,下面的可以做到两个按钮的区分跳转
       buttonClick(e) {
         console.log(e)
         if (e.content.text === '加入购物车') {
-          uni.switchTab({
-            url: '/pages/cart/cart'
-          })
+          const goods = {
+            goods_id: this.goods_info.goods_id,       // 商品的Id
+            goods_name: this.goods_info.goods_name,   // 商品的名称
+            goods_price: this.goods_info.goods_price, // 商品的价格
+            goods_count: 1,                           // 商品的数量
+            goods_small_logo: this.goods_info.goods_small_logo, // 商品的图片
+            goods_state: true
+          }
+          console.log(goods)
+          this.addToCart(goods)
         }
+      }
+    },
+    computed: {
+      // 调用 mapState 方法，把 m_cart 模块中的 cart 数组映射到当前页面中，作为计算属性来使用
+      // ...mapState('模块的名称', ['要映射的数据名称1', '要映射的数据名称2'])
+      ...mapState('m_cart', ['cart']),
+      ...mapGetters('m_cart', ['total']),
+    },
+    watch: {
+      // total(newVal) {
+      //   const findResult = this.options.find(x => x.text === '购物车')
+      //   if(findResult) {
+      //     findResult.info = newVal
+      //   }
+      // }
+      total: {
+        // handler官方定义的监听器处理方法,从方法>>>改编成对象，对象有imm属性，立即执行
+        handler(newVal) {
+          const findResult = this.options.find(x => x.text === '购物车')
+          if(findResult) {
+            findResult.info = newVal
+          }
+        },
+        immediate: true
       }
     }
   }
