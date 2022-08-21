@@ -10,8 +10,8 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "subpkg/goods-list/goods-list",
-                    "query": "cid=5",
+                    "pathName": "subpkg/goods-detail/goods-detail",
+                    "query": "goods_id=395",
                     "launchMode": "default",
                     "scene": null
                 }
