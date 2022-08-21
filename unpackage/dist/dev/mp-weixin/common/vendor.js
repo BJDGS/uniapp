@@ -10094,6 +10094,7 @@ internalMixin(Vue);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 51:
 /*!***********************************************!*\
   !*** C:/Users/Ha/Desktop/unia/store/store.js ***!
@@ -10118,6 +10119,8 @@ store;exports.default = _default;
 
 /***/ }),
 
+=======
+>>>>>>> goodsdetail
 /***/ 80:
 /*!************************************************************************************!*\
   !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-icons/components/uni-icons/icons.js ***!
@@ -11295,14 +11298,22 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 83:
 /*!**************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vuex3/dist/vuex.common.js ***!
   \**************************************************************************************/
+=======
+/***/ 88:
+/*!*************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
+  \*************************************************************************************************/
+>>>>>>> goodsdetail
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */(function(global) {/*!
  * vuex v3.6.2
  * (c) 2021 Evan You
@@ -12567,6 +12578,48 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   getters: {},
   mutations: {} };exports.default = _default;
+=======
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 89));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 90));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 91));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 89:
+/*!************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
+  \************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
+
+/***/ }),
+
+/***/ 90:
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
+  \*****************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
+
+/***/ }),
+
+/***/ 91:
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/Ha/Desktop/unia/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
+  \*****************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
+>>>>>>> goodsdetail
 
 /***/ }),
 

@@ -10,8 +10,8 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "subpkg/goods-list/goods-list",
-                    "query": "cid=5",
+                    "pathName": "pages/home/home",
+                    "query": "",
                     "launchMode": "default",
                     "scene": null
                 }
