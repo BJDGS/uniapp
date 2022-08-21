@@ -13,7 +13,7 @@ export default {
   },
   mutations: {
     addToCart(state, goods) {
-      const findResult = state.cart.find(x => { x.goods_id === goods.goods_id })
+      const findResult = state.cart.find(item => item.goods_id === goods.goods_id)
       if (!findResult) {
         state.cart.push(goods)
       } else {
@@ -25,6 +25,26 @@ export default {
     saveToStorage(state) {
       // cart本地存储名称，JSON.stringify转换成字符串
       uni.setStorageSync('cart', JSON.stringify(state.cart))
+    },
+    updateGoodsState(state, goods) {
+      const findResult = state.cart.find(item => item.goods_id === goods.goods_id)
+      if(findResult) {
+        findResult.goods_state = goods.goods_state
+        // 存储到本地
+        this.commit('m_cart/saveToStorage')
+      }
+    },
+    updateGoodsCount(state, goods) {
+      const findResult = state.cart.find(item => item.goods_id === goods.goods_id)
+      if(findResult) {
+        findResult.goods_count = goods.goods_count
+        // 存储到本地
+        this.commit('m_cart/saveToStorage')
+      }
+    },
+    removeGoodsById(state, goods_id) {
+      state.cart = state.cart.filter(item => item.goods_id !== goods_id)
+      this.commit('m_cart/saveToStorage')
     }
   },
 }
