@@ -16,35 +16,26 @@
   "subPackages": [{
     // root根目录是subpkg
     "root": "subpkg",
-    "pages": [{
-                    "path" : "goods-detail/goods-detail",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                },
-                
-                {
-                    "path" : "search/search",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "goods-list/goods-list",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+    "pages": [
+        {
+            "path" : "goods-detail/goods-detail",
+            "style" : {}
+        },
+        {
+            "path" : "search/search",
+            "style" : {}
+        },
+        {
+            "path" : "goods-list/goods-list",
+            "style" : {
+              // 当滚动条距离地面不足150像素的时候出发上拉
+              "onReachBottomDistance": 150,
+              // 下拉刷新效果,页面最上头的那个
+              "enablePullDownRefresh": true,
+              "backgroundColor": "#f8f8f8"
+            }
+        }
+    ]
   }],
   "globalStyle": {
     "navigationBarTextStyle": "white",

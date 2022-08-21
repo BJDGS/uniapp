@@ -84,7 +84,7 @@
           return uni.$showMsg()
         }
         this.floorList = res.message
-        uni.$showMsg('电梯请求成功')
+        // uni.$showMsg('电梯请求成功')
       },
       gotoSeach() {
         uni.navigateTo({

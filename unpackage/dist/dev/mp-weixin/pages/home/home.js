@@ -248,8 +248,8 @@ var _default =
                 uni.$showMsg());case 7:
 
                 _this3.floorList = res.message;
-                uni.$showMsg('电梯请求成功');case 9:case "end":return _context3.stop();}}}, _callee3);}))();
-    },
+                // uni.$showMsg('电梯请求成功')
+              case 8:case "end":return _context3.stop();}}}, _callee3);}))();},
     gotoSeach: function gotoSeach() {
       uni.navigateTo({
         url: '/subpkg/search/search' });
