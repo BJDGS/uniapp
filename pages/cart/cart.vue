@@ -1,12 +1,12 @@
 <template>
-  <view>
+  <view class="cart-container">
     <my-address></my-address>
     <view class="cart-title">
       <uni-icons type="shop" size="20"></uni-icons>
       <text class="cart-title-text">购物车</text>
     </view>
     <!-- 1. 在block标签外面写的这个uni-swipe-action就可以给item加滑动效果, 滑动组合1 -->
-    <uni-swipe-action>
+    <uni-swipe-action v-if="cart.length !== 0">
       <block v-for="(item, i) in cart">
         <!-- radio-change自定义方法 -->
         <!-- 在每一个商品外面也写一个uni-swipe-action-item标签，滑动组合2 -->
@@ -16,6 +16,11 @@
         </uni-swipe-action-item>
       </block>
     </uni-swipe-action>
+    <view class="empty-cart" v-else>
+      <image class="empty-img" src="/static/cart_empty@2x.png" mode=""></image>
+      <text class="tip-text">空空如也~</text>
+    </view>
+    <my-settle></my-settle>
   </view>
 </template>
 
@@ -67,6 +72,26 @@
   padding-left: 5px;
   text {
     margin-left: 8px;
+  }
+}
+.cart-container {
+  padding-bottom: 50px;
+}
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+
+  .empty-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .tip-text {
+    font-size: 12px;
+    color: gray;
+    margin-top: 15px;
   }
 }
 </style>

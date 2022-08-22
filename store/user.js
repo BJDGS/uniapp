@@ -8,7 +8,7 @@ export default {
     addstr(state) {
       if (!state.address.provinceName) return ''
       return state.address.provinceName + state.address.cityName + state.address.countyName + state.address.detailInfo
-    }
+    },
   },
   mutations: {
     // 官方给的方法，持久化存储到本地

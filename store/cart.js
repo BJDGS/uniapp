@@ -6,9 +6,13 @@ export default {
   }),
   getters: {
     total(state) {
-      let c = 0
-      state.cart.forEach(goods => c += goods.goods_count)
-      return c
+      return state.cart.reduce((p, c) => p + c.goods_count, 0)
+    },
+    checkedCount(state) {
+      return state.cart.filter(x => x.goods_state).reduce((p, c) => p + c.goods_count, 0)
+    },
+    checkedGoodsAmount(state) {
+      return state.cart.filter(x => x.goods_state).reduce((p, c) => p + c.goods_count * c.goods_price, 0).toFixed(2)
     }
   },
   mutations: {
@@ -45,6 +49,10 @@ export default {
     removeGoodsById(state, goods_id) {
       state.cart = state.cart.filter(item => item.goods_id !== goods_id)
       this.commit('m_cart/saveToStorage')
-    }
+    },
+    updateAllGoodsState(state, newState) {
+      state.cart.forEach(x => x.goods_state = newState)
+      this.commit('m_cart/saveToStorage')
+    },
   },
 }
