@@ -1,5 +1,6 @@
 <template>
   <view>
+    <my-address></my-address>
     <view class="cart-title">
       <uni-icons type="shop" size="20"></uni-icons>
       <text class="cart-title-text">购物车</text>
