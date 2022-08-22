@@ -2,7 +2,9 @@ export default {
   namespaced: true,
   state: () => ({
     // 1. 读取本地数据对象， 2. 空对象
-    address: JSON.parse(uni.getStorageSync('address') || '{}')
+    address: JSON.parse(uni.getStorageSync('address') || '{}'),
+    token: uni.getStorageSync('token') || '',
+    userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}')
   }),
   getters: {
     addstr(state) {
@@ -16,9 +18,23 @@ export default {
       // address本地存储名称，JSON.stringify转换成字符串
       uni.setStorageSync('address', JSON.stringify(state.address))
     },
+    saveUserInfoToStorage(state) {
+      uni.setStorageSync('userinfo', JSON.stringify(state.userinfo))
+    },
+    saveTokenToStorage(state) {
+      uni.setStorageSync('token', state.token)
+    },
     updateAddress(state, address) {
       state.address = address
       this.commit('m_user/saveAddressToStorage')
-    }
+    },
+    updateUserInfo(state, userinfo) {
+      state.userinfo = userinfo
+      this.commit('m_user/saveUserInfoToStorage')
+    },
+    updateToken(state, token) {
+      state.token = token
+      this.commit('m_user/saveTokenToStorage')
+    },
   }
 }

@@ -81,7 +81,7 @@
     .goods-info-box {
       display: flex;
       justify-content: space-between;
-      // flex: 1;
+      align-items: center;
       .goods-price{
         color: darkred;
       }
