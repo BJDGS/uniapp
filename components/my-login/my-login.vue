@@ -45,10 +45,13 @@
           encryptedData: info.encryptedData,
           iv: info.iv,
           rawData: info.rawData,
+          // rawData: {"nickName":"crush","gender":0,"language":"zh_CN","city":"Shijiazhuang","province":"Hebei","country":"China","avatarUrl":"https://thirdwx.qlogo.cn/mmopen/vi_32/qg9Ammam7utE3gfZ0JBA6CUx9QtKIjiacIxiazxaXBIia2f7HmREoibniaAiaTLsSnDNpUhRlENbJic16Y8l4NiaXktHEA/132"},
           signature: info.signature
         }
         console.log(query)
-        const {data: loginResult} = await uni.$http.post('/api/public/v1/users/wxlogin', query)
+        console.log('123')
+        const { data: loginResult } = await uni.$http.post('/api/public/v1/users/wxlogin', query)
+        console.log(loginResult)
         if(loginResult.meta.status!==200) return uni.$showMsg('登录失败')
         uni.$showMsg('登录成功')
         console.log(loginResult)

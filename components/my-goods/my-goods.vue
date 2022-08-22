@@ -73,6 +73,7 @@
   .goods-item-right {
     margin-left: 10px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: space-between;
     .goods-name {

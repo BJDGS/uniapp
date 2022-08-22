@@ -184,16 +184,19 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
                   encryptedData: info.encryptedData,
                   iv: info.iv,
                   rawData: info.rawData,
+                  // rawData: {"nickName":"crush","gender":0,"language":"zh_CN","city":"Shijiazhuang","province":"Hebei","country":"China","avatarUrl":"https://thirdwx.qlogo.cn/mmopen/vi_32/qg9Ammam7utE3gfZ0JBA6CUx9QtKIjiacIxiazxaXBIia2f7HmREoibniaAiaTLsSnDNpUhRlENbJic16Y8l4NiaXktHEA/132"},
                   signature: info.signature };
 
-                console.log(query);_context.next = 12;return (
-                  uni.$http.post('/api/public/v1/users/wxlogin', query));case 12:_yield$uni$$http$post = _context.sent;loginResult = _yield$uni$$http$post.data;if (!(
-                loginResult.meta.status !== 200)) {_context.next = 16;break;}return _context.abrupt("return", uni.$showMsg('登录失败'));case 16:
+                console.log(query);
+                console.log('123');_context.next = 13;return (
+                  uni.$http.post('/api/public/v1/users/wxlogin', query));case 13:_yield$uni$$http$post = _context.sent;loginResult = _yield$uni$$http$post.data;
+                console.log(loginResult);if (!(
+                loginResult.meta.status !== 200)) {_context.next = 18;break;}return _context.abrupt("return", uni.$showMsg('登录失败'));case 18:
                 uni.$showMsg('登录成功');
                 console.log(loginResult);
                 _this2.updateToken(loginResult.message.token);
                 // 返回登陆前的页面
-                _this2.navigateBack();case 20:case "end":return _context.stop();}}}, _callee);}))();
+                _this2.navigateBack();case 22:case "end":return _context.stop();}}}, _callee);}))();
     },
     navigateBack: function navigateBack() {var _this3 = this;
       if (this.redirectInfo && this.redirectInfo.openType === 'switchTab') {

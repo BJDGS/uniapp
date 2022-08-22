@@ -4710,6 +4710,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
   state: function state() {return {
       // 1. 读取本地数据对象， 2. 空对象
       address: JSON.parse(uni.getStorageSync('address') || '{}'),
+      // token: uni.getStorageSync('token') || '',
       token: uni.getStorageSync('token') || '',
       userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
       redirectInfo: null };},
