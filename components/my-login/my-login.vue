@@ -9,15 +9,18 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { mapMutations, mapState } from 'vuex'
   export default {
     name:"my-login",
     data() {
       return {
       }
     },
+    computed: {
+      ...mapState('m_user', ['redirectInfo']),
+    },
     methods: {
-      ...mapMutations('m_user', ['updateUserInfo', 'updateToken']),
+      ...mapMutations('m_user', ['updateUserInfo', 'updateToken', 'redirectInfo']),
       // 旧的不行,这是新方法
       bindGetUserInfo(e) {
         uni.getUserProfile({
@@ -32,6 +35,7 @@
           },
         })
       },
+      // 给后台发请求,拿最终的TOKEN,目前这块请求失败,可能因为rawData里面的city等信息拿不到导致为空
       async getToken(info){
         const [err, res] = await uni.login().catch(err=>err)
         if(err || res.errMsg !=='login:ok') return uni.$showMsg('登录失败')    
@@ -49,8 +53,20 @@
         uni.$showMsg('登录成功')
         console.log(loginResult)
         this.updateToken(loginResult.message.token)
-        // this.navigateBack()
+        // 返回登陆前的页面
+        this.navigateBack()
       },
+      navigateBack() {
+        if (this.redirectInfo && this.redirectInfo.openType === 'switchTab') {
+          uni.switchTab({
+            url: this.redirectInfo.from,
+            // 导航成功之后，把 vuex 中的 redirectInfo 对象重置为 null
+            complete: () => {
+              this.updateRedirectInfo(null)
+            }
+          })
+        }
+      }
     }
   }
 </script>

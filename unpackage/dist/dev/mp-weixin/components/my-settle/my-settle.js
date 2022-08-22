@@ -132,8 +132,9 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function ownKeys(object, enumera
 {
   name: "my-settle",
   data: function data() {
-    return {};
-
+    return {
+      seconds: 5,
+      timer: null };
 
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({},
@@ -147,15 +148,48 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function ownKeys(object, enumera
       return this.total === this.checkedCount;
     } }),
 
-  methods: _objectSpread(_objectSpread({},
-  (0, _vuex.mapMutations)('m_cart', ['updateAllGoodsState'])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)('m_cart', ['updateAllGoodsState'])),
+  (0, _vuex.mapMutations)('m_user', ['updateRedirectInfo'])), {}, {
     changeAllState: function changeAllState() {
       this.updateAllGoodsState(!this.isFullCheck);
     },
     settlement: function settlement() {
       if (!this.checkedCount) return uni.$showMsg('请选择要结算的商品！');
       if (!this.addstr) return uni.$showMsg('请选择收货地址！');
-      if (!this.token) return uni.$showMsg('请先登录！');
+      // if (!this.token) return uni.$showMsg('请先登录！')
+      if (!this.token) return this.delayNavigate();
+    },
+    // 展示倒计时的提示消息
+    showTips: function showTips(n) {
+      uni.showToast({
+        icon: 'none',
+        title: '请登录后再结算！' + n + '秒之后自动跳转到登录页',
+        mask: true,
+        duration: 1500 });
+
+    },
+    delayNavigate: function delayNavigate() {var _this = this;
+      this.seconds = 5;
+      this.showTips(this.seconds);
+      this.timer = setInterval(function () {
+        _this.showTips(_this.seconds);
+        _this.seconds--;
+        if (_this.seconds <= 0) {
+          clearInterval(_this.timer);
+          uni.switchTab({
+            url: '/pages/my/my',
+            success: function success() {
+              _this.updateRedirectInfo({
+                openType: 'switchTab',
+                from: '/pages/cart/cart' });
+
+            } });
+
+          return;
+        }
+        _this.showTips(_this.seconds);
+      }, 1000);
     } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -4,7 +4,8 @@ export default {
     // 1. 读取本地数据对象， 2. 空对象
     address: JSON.parse(uni.getStorageSync('address') || '{}'),
     token: uni.getStorageSync('token') || '',
-    userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}')
+    userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
+    redirectInfo: null
   }),
   getters: {
     addstr(state) {
@@ -36,5 +37,8 @@ export default {
       state.token = token
       this.commit('m_user/saveTokenToStorage')
     },
+    updateRedirectInfo(state, info) {
+      state.redirectInfo = info
+    }
   }
 }
